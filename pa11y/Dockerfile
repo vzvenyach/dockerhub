@@ -3,6 +3,8 @@
 FROM      ubuntu:14.04
 MAINTAINER V. David Zvenyach <dave@esq.io>
 
+# Usage
+# sudo docker run -ti vzvenyach/pa11y 
 
 # Install dependencies
 RUN apt-get update && apt-get install -y build-essential g++ flex bison gperf ruby perl \
@@ -20,6 +22,8 @@ RUN curl -sL https://deb.nodesource.com/setup | sudo bash - && apt-get install -
 # Install Pally CLI
 RUN npm install -g pa11y
 
+RUN ln -s /phantomjs/bin/phantomjs /usr/local/bin/phantomjs
 
 # Run it
-ENTRYPOINT "pa11y"
+ENTRYPOINT ["pa11y"]
+CMD ["-v"]
