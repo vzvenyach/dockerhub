@@ -3,8 +3,11 @@
 FROM      ubuntu:14.04
 MAINTAINER V. David Zvenyach <dave@esq.io>
 
-# Usage
-# sudo docker run -ti -p 4000:4000 vzvenyach/pa11y-dash 
+# USAGE
+# interactive
+# 	sudo docker run -ti --rm --name pa11y -p 4000:4000 vzvenyach/pa11ydash
+# or daemonized: 
+# 	sudo docker run -ti -d --name pa11y -p 4000:4000 vzvenyach/pa11ydash
 
 # Install dependencies
 RUN apt-get update && apt-get install -y build-essential g++ flex bison gperf ruby perl \
